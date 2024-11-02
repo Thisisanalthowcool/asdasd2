@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URL Redirect</title>
+</head>
+<body>
+    <h2>Enter a website URL:</h2>
+    <input type="text" id="urlInput" placeholder="https://example.com" />
+    <button onclick="openInBlank()">Go</button>
+
+    <script>
+        function openInBlank() {
+            const urlInput = document.getElementById('urlInput').value;
+            if (urlInput) {
+                // Open a new blank tab
+                const newWindow = window.open('about:blank', '_blank');
+                newWindow.location.href = urlInput; // Set the URL in the new window
+
+                // Redirect the main page
+                window.location.replace('https://lms.fcps.edu'); // Use replace to not keep history
+            } else {
+                alert("Please enter a valid URL.");
+            }
+        }
+    </script>
+</body>
+</html>
